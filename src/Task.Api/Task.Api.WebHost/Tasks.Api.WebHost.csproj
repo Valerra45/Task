@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Task.Api.Infrastructure\Task.Api.Infrastructure.csproj" />
+    <ProjectReference Include="..\Task.Api.Infrastructure\Tasks.Api.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

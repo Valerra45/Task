@@ -1,6 +1,6 @@
 ﻿using IdentityServer4.Models;
 
-namespace Task.Identity.Infrastructure
+namespace Tasks.Identity.Infrastructure
 {
     public class IdentityConfiguration
     {
@@ -11,9 +11,9 @@ namespace Task.Identity.Infrastructure
                 ClientId = "m2m.client",
 
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                ClientSecrets = { new Secret("m2m.client".Sha256()) },
+                ClientSecrets = { new Secret("FC2D2DCE-91F6-48ED-991F-8B1B7C1DB055".Sha256()) },
 
-                AllowedScopes = { "m2m_client" }
+                AllowedScopes = { "M2mClient" }
             };
         }
 

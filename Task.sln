@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Api.Core", "src\Task.Api\Task.Api.Core\Task.Api.Core.csproj", "{F8C6BCC5-D958-48A6-A27C-154884E5141C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Api.Core", "src\Task.Api\Task.Api.Core\Tasks.Api.Core.csproj", "{F8C6BCC5-D958-48A6-A27C-154884E5141C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Identity.Infrastructure", "src\Task.Identity\Task.Identity.Infrastructure\Task.Identity.Infrastructure.csproj", "{B4E7495F-73BA-4CBE-AB05-BB1A848BA5C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Identity.Infrastructure", "src\Task.Identity\Task.Identity.Infrastructure\Tasks.Identity.Infrastructure.csproj", "{B4E7495F-73BA-4CBE-AB05-BB1A848BA5C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task.Api", "Task.Api", "{19422A67-206F-4845-BF7C-B4FADADEAB3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task.Identity", "Task.Identity", "{5AB2175A-0D99-463A-9B2C-065A1EB77885}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Identity.WebHost", "src\Task.Identity\Task.Identity.WebHost\Task.Identity.WebHost.csproj", "{3D77F5DA-2AEF-4037-A5F4-E082A2DF8342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Identity.WebHost", "src\Task.Identity\Task.Identity.WebHost\Tasks.Identity.WebHost.csproj", "{3D77F5DA-2AEF-4037-A5F4-E082A2DF8342}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Api.Infrastructure", "src\Task.Api\Task.Api.Infrastructure\Task.Api.Infrastructure.csproj", "{BF2414A9-374B-4177-A28F-AAED7A2A19CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Api.Infrastructure", "src\Task.Api\Task.Api.Infrastructure\Tasks.Api.Infrastructure.csproj", "{BF2414A9-374B-4177-A28F-AAED7A2A19CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task.Api.WebHost", "src\Task.Api\Task.Api.WebHost\Task.Api.WebHost.csproj", "{FDC30E07-904E-4077-9B44-6DA7D0A2D89B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Api.WebHost", "src\Task.Api\Task.Api.WebHost\Tasks.Api.WebHost.csproj", "{FDC30E07-904E-4077-9B44-6DA7D0A2D89B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Identity.Core", "src\Task.Identity\Task.Identity.Core\Task.Identity.Core.csproj", "{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Identity.Core", "src\Task.Identity\Task.Identity.Core\Tasks.Identity.Core.csproj", "{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
