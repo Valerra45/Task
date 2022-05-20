@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Task.Identity.Core.Abstraction;
+using Tasks.Identity.Core.Abstractions;
 
-namespace Task.Identity.Infrastructure.Data
+namespace Tasks.Identity.Infrastructure.Data
 {
     public class DbInitializer : IDbInitializer
     {

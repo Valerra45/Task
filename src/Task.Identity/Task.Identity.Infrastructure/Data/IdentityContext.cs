@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Task.Identity.Infrastructure.Data
+namespace Tasks.Identity.Infrastructure.Data
 {
     public class IdentityContext : IdentityDbContext
     {

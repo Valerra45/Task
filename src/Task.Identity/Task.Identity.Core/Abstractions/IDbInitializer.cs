@@ -1,4 +1,4 @@
-﻿namespace Task.Identity.Core.Abstraction
+﻿namespace Tasks.Identity.Core.Abstractions
 {
     public interface IDbInitializer
     {
