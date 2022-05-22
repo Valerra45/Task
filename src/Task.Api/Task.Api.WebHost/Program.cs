@@ -6,8 +6,25 @@ using Tasks.Api.Infrastructure.Repository;
 using MediatR;
 using Tasks.Api.Infrastructure.Services.TaskTypes.Queryes;
 using Tasks.Api.Infrastructure.MapProfiles;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config => 
+    {
+        config.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = false,
+            ValidateIssuer = false,
+        };
+
+        config.Authority = "https://localhost:10001";
+        config.Audience = "m2m.client";
+
+        config.RequireHttpsMetadata = false;
+    });
 
 builder.Services.AddControllers();
 
