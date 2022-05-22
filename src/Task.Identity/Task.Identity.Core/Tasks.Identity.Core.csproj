@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Task.Shared\Tasks.Shared.Contracts\Tasks.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\Task.Shared\Tasks.Shared.Contracts\Tasks.Shared.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

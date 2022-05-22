@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Identity.Core", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task.Shared", "Task.Shared", "{09F1A63B-E9E6-4AD5-8F5E-18DDA3401531}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Shared.Contracts", "Task.Shared\Tasks.Shared.Contracts\Tasks.Shared.Contracts.csproj", "{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Shared.Contracts", "src\Task.Shared\Tasks.Shared.Contracts\Tasks.Shared.Contracts.csproj", "{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
