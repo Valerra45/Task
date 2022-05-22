@@ -27,6 +27,23 @@ services:
         depends_on:
             - postgres 
    
+    message-broker:
+        image: rabbitmq:3-management
+        restart: always
+        hostname: "rabbitmq"
+        labels:
+            NAME: "rabbitmq"
+        ports:
+            - "4369:4369"
+            - "5671:5671"
+            - "5672:5672"
+            - "25672:25672"
+            - "15671:15671"
+            - "15672:15672"
+        volumes:
+            - rabbitmq-data:/var/lib/rabbitmq
+
 volumes:
     database-data:
-    pgadmin:          
+    pgadmin:
+    rabbitmq-data:          

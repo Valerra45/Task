@@ -15,7 +15,7 @@ namespace Tasks.Api.Core.Domain
 
         public Guid Id { get; set; }
 
-        public DateTime Created { get; set; }
+        public DateTime? Created { get; set; }
 
         public DateTime? Update { get; set; }
     }

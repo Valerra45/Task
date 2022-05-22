@@ -35,7 +35,10 @@ builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 builder.Services.AddCors();
 
+
 var app = builder.Build();
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 Initialize(app);
 
@@ -54,6 +57,7 @@ app.UseAuthorization();
 app.UseIdentityServer();
 
 app.Run();
+
 
 void Initialize(IHost app)
 {

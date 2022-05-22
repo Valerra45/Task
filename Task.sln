@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Api.WebHost", "src\Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Identity.Core", "src\Task.Identity\Task.Identity.Core\Tasks.Identity.Core.csproj", "{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task.Shared", "Task.Shared", "{09F1A63B-E9E6-4AD5-8F5E-18DDA3401531}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Shared.Contracts", "Task.Shared\Tasks.Shared.Contracts\Tasks.Shared.Contracts.csproj", "{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39CFA937-BA08-4A06-ADD3-94B7DB988C5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 		{BF2414A9-374B-4177-A28F-AAED7A2A19CF} = {19422A67-206F-4845-BF7C-B4FADADEAB3D}
 		{FDC30E07-904E-4077-9B44-6DA7D0A2D89B} = {19422A67-206F-4845-BF7C-B4FADADEAB3D}
 		{4CB494F1-6F8D-47B5-AE02-2BD3FAAC512A} = {5AB2175A-0D99-463A-9B2C-065A1EB77885}
+		{39CFA937-BA08-4A06-ADD3-94B7DB988C5F} = {09F1A63B-E9E6-4AD5-8F5E-18DDA3401531}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D80B316C-6E9D-41E1-B08D-F19AAFF65E04}

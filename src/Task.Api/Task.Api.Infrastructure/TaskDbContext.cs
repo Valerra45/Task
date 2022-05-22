@@ -17,10 +17,16 @@ namespace Tasks.Api.Infrastructure
         }
 
         public DbSet<DocumentTask>? DocumentTasks { get; set; }
+
         public DbSet<Responsible>? Responsible { get; set; }
+
         public DbSet<Partner>? Partners { get; set; }
+
         public DbSet<Importance>? Importances { get; set; }
+
         public DbSet<TaskType>? TaskTypes { get; set; }
+
+        public DbSet<User>? User { get; set; }
     }
 }
 
