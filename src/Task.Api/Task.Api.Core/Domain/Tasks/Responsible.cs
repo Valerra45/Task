@@ -12,6 +12,6 @@ namespace Tasks.Api.Core.Domain.Tasks
 
         public string? LastName { get; set; }
 
-        public string? LoginName { get; set; }
+        public virtual User? User { get; set; }
     }
 }
