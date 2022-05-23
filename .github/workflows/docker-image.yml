@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  IMAGE_NAME: identityserver
+  IMAGE_NAME_IDENTITY: identityserver
+  IMAGE_NAME_API: api
 
 jobs:
 
@@ -23,11 +24,11 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build the IdentityServer Docker image
-      run: docker build . --file src/Task.Identity/Task.Identity.WebHost/Dockerfile --tag $IMAGE_NAME
+      run: docker build . --file src/Task.Identity/Task.Identity.WebHost/Dockerfile --tag $IMAGE_NAME_IDENTITY
       
-    - name: Push image
+    - name: Push IdentityServer image
       run: |
-        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME_IDENTITY
 
         # Change all uppercase to lowercase
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
@@ -37,8 +38,23 @@ jobs:
         [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
         # Use Docker `latest` tag convention
         [ "$VERSION" == "master" ] && VERSION=latest
-        docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+        docker tag $IMAGE_NAME_IDENTITY $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
       
     - name: Build the Api Docker image
-      run: docker build . --file src/Task.Api/Task.Api.WebHost/Dockerfile --tag api
+      run: docker build . --file src/Task.Api/Task.Api.WebHost/Dockerfile --tag $IMAGE_NAME_API
+
+    - name: Push Api image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME_API
+
+        # Change all uppercase to lowercase
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+        # Strip git ref prefix from version
+        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        # Strip "v" prefix from tag name
+        [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+        # Use Docker `latest` tag convention
+        [ "$VERSION" == "master" ] && VERSION=latest
+        docker tag $IMAGE_NAME_API $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
