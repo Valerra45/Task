@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the IdentityServer Docker image
-      run: docker build . --file src/Task.Identity/Task.Identity.WebHost/Dockerfile --tag IdentityServer:dev
+      run: docker build . --file src/Task.Identity/Task.Identity.WebHost/Dockerfile --tag identityserver:dev
     - name: Build the Api Docker image
-      run: docker build . --file src/Task.Api/Task.Api.WebHost/Dockerfile --tag Api:dev
+      run: docker build . --file src/Task.Api/Task.Api.WebHost/Dockerfile --tag api:dev
