@@ -20,7 +20,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = false,
         };
 
-        config.Authority = "https://localhost:10001";
+        config.Authority = "http://localhost:10000";
         config.Audience = "m2m.client";
 
         config.RequireHttpsMetadata = false;
