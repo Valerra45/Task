@@ -7,8 +7,8 @@ services:
         image: ghcr.io/valerra45/api:main
         container_name: 'api'
         ports:
-            - "5000:5000"
-            - "5001:5001"
+            - "5000:80"
+            - "5001:443"
         links:
             - postgres    
         depends_on:
@@ -18,8 +18,8 @@ services:
         image: ghcr.io/valerra45/identityserver:main
         container_name: 'identity-server'
         ports:
-            - "10000:10000"
-            - "10001:10001"
+            - "10000:80"
+            - "10001:443"
         links:
             - postgres    
         depends_on:
