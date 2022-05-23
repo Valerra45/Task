@@ -2,6 +2,31 @@ version: "3.7"
 
 services:
 
+    #Api
+    api:
+        image: ghcr.io/valerra45/api:main
+        container_name: 'api'
+        ports:
+            - "5000:5000"
+            - "5001:5001"
+        links:
+            - postgres    
+        depends_on:
+            - postgres
+    #IS4
+    identity-server:
+        image: ghcr.io/valerra45/identityserver:main
+        container_name: 'identity-server'
+        ports:
+            - "10000:10000"
+            - "10001:10001"
+        links:
+            - postgres    
+        depends_on:
+            - postgres
+
+
+    #Db
     postgres:
         restart: unless-stopped
         image: "postgres"
@@ -14,6 +39,7 @@ services:
         volumes:
             - database-data:/var/lib/postgresql/data/
 
+    #DbAdmin
     pgadmin:
         restart: unless-stopped
         image: dpage/pgadmin4
@@ -26,7 +52,8 @@ services:
             - pgadmin:/root/.pgadmin 
         depends_on:
             - postgres 
-   
+    
+    #RabbitMQ
     message-broker:
         image: rabbitmq:3-management
         restart: always
