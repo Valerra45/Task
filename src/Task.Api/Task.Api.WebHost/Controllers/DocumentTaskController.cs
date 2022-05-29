@@ -24,7 +24,7 @@ namespace Tasks.Api.WebHost.Controllers
         {
             foreach (var documentTask in tasks)
             {
-                await _mediatr.Send(new CreateOrEditDocumentTaskCommand(documentTask));
+                await _mediatr.Send(new CreateDocumentTaskCommand(documentTask));
             }
 
             return Ok();
