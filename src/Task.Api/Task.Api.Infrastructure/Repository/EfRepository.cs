@@ -1,13 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using Tasks.Api.Core.Abstractions;
 using Tasks.Api.Core.Domain;
-using Tasks.Api.Core.Exceptions;
 
 namespace Tasks.Api.Infrastructure.Repository
 {
@@ -54,11 +48,6 @@ namespace Tasks.Api.Infrastructure.Repository
         {
             var entity = await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (entity is null)
-            {
-                throw new EntityNotFoundException($"{nameof(entity)} with id '{id}' doesn't exist");
-            }
-
             return entity;
         }
         public async Task UpdateAsync(T entity)
@@ -85,12 +74,7 @@ namespace Tasks.Api.Infrastructure.Repository
         public async Task<T> GetFirstWhere(Expression<Func<T, bool>> predicate)
         {
             var entity = await _context.Set<T>().FirstOrDefaultAsync(predicate);
-
-            if (entity is null)
-            {
-                throw new EntityNotFoundException($"{nameof(entity)} doesn't exist");
-            }
-
+      
             return entity;
         }
 

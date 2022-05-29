@@ -1,6 +1,6 @@
-﻿namespace Tasks.Api.Core.Domain.Tasks
+﻿namespace Tasks.Api.Application.Services.Paetners
 {
-    public class Partner : BaseEntity
+    public class CreateOrEditPartner
     {
         public Guid GUID { get; set; }
 
@@ -11,7 +11,5 @@
         public string? Description { get; set; }
 
         public string? Phone { get; set; }
-
-        public virtual List<DocumentTask>? DocumentTasks { get; set; }
     }
 }

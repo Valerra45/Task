@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tasks.Api.Core.Domain.Tasks;
 
 namespace Tasks.Api.Infrastructure
@@ -12,7 +7,7 @@ namespace Tasks.Api.Infrastructure
     {
         public TaskDbContext(DbContextOptions<TaskDbContext> options)
             : base(options)
-        { 
+        {
 
         }
 
@@ -25,8 +20,6 @@ namespace Tasks.Api.Infrastructure
         public DbSet<Importance>? Importances { get; set; }
 
         public DbSet<TaskType>? TaskTypes { get; set; }
-
-        public DbSet<User>? User { get; set; }
     }
 }
 

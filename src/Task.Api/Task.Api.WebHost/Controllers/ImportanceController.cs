@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Tasks.Api.Infrastructure.Services.Importances;
-using Tasks.Api.Infrastructure.Services.Importances.Queryes;
+using Tasks.Api.Application.Services.Importances;
+using Tasks.Api.Application.Services.Importances.Queryes;
 
 namespace Tasks.Api.WebHost.Controllers
 {
@@ -20,7 +20,7 @@ namespace Tasks.Api.WebHost.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ImportanceDto>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<ImportanceResponse>>> GetAllAsync()
         {
             var responce = await _mediatr.Send(new GetAllImportancesQuery());
 

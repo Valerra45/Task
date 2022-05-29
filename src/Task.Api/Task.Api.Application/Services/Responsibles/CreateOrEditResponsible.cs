@@ -1,6 +1,6 @@
-﻿namespace Tasks.Api.Core.Domain.Tasks
+﻿namespace Tasks.Api.Application.Services.Responsibles
 {
-    public class Responsible : BaseEntity
+    public class CreateOrEditResponsible
     {
         public Guid GUID { get; set; }
 
@@ -10,6 +10,5 @@
 
         public string? User { get; set; }
 
-        public virtual List<DocumentTask>? DocumentTasks { get; set; }
     }
 }

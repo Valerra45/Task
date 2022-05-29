@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Task.Api.Infrastructure\Tasks.Api.Infrastructure.csproj" />
+    <ProjectReference Include="..\Task.Api.Application\Tasks.Api.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -22,9 +22,4 @@
     <ProjectReference Include="..\Task.Api.Core\Tasks.Api.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Importances\Commands\" />
-    <Folder Include="Services\TaskTypes\Commands\" />
-  </ItemGroup>
-
 </Project>
