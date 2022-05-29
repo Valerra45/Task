@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tasks.Api.Core.Abstractions;
+﻿using Tasks.Api.Core.Abstractions;
 
 namespace Tasks.Api.Infrastructure.Data
 {

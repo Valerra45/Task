@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Task.Api.Infrastructure\Tasks.Api.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Importances\Commands\" />
+    <Folder Include="Services\DocumentTasks\Queryes\" />
+    <Folder Include="Services\Paetners\Commands\" />
+    <Folder Include="Services\Paetners\Queryes\" />
+    <Folder Include="Services\Responsibles\Commadns\" />
+    <Folder Include="Services\Responsibles\Queryes\" />
+    <Folder Include="Services\TaskTypes\Commands\" />
+    <Folder Include="Services\Users\Commands\" />
+    <Folder Include="Services\Users\Queryes\" />
+  </ItemGroup>
+
+</Project>

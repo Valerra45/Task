@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Task.Shared\Tasks.Shared.Contracts\Tasks.Shared.Contracts.csproj" />
   </ItemGroup>
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tasks.Api.Core.Domain
+﻿namespace Tasks.Api.Core.Domain
 {
     public class BaseEntity
     {
