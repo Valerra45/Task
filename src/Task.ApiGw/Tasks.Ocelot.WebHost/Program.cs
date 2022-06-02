@@ -1,3 +1,4 @@
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -5,20 +6,41 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("ocelot.json");
 
-builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddOcelot();
+
+builder.Services.AddCors();
+
+builder.Services.AddAuthentication()
+    .AddJwtBearer("IdentityApiKey", config =>
+    {
+        config.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = false,
+            ValidateIssuer = false,
+        };
+
+        config.Authority = "https://localhost:10001";
+        config.Audience = "m2m.client";
+
+        config.RequireHttpsMetadata = false;
+    });
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+app.UseCors(builder =>
+{
+    builder
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowAnyOrigin();
+});
 
-app.UseOcelot().Wait();
+await app.UseOcelot();
+
+app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();

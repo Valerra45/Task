@@ -1,9 +1,12 @@
-﻿namespace Tasks.Api.Core.Domain.Tasks
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Tasks.Api.Core.Domain.Tasks
 {
     public class DocumentTask : BaseEntity
     {
         public Guid GUID { get; set; }
 
+        [NotMapped]
         public virtual Responsible? Author { get; set; }
 
         public virtual Responsible? Executor { get; set; }

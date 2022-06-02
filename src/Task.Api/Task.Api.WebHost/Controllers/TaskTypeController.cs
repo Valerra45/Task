@@ -8,7 +8,6 @@ namespace Tasks.Api.WebHost.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer")]
     public class TaskTypeController
         : ControllerBase
     {

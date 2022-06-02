@@ -1,7 +1,5 @@
 using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Tasks.Api.Application.MapProfiles;
 using Tasks.Api.Application.Services.TaskTypes.Queryes;
 using Tasks.Api.Core.Abstractions;
@@ -10,21 +8,6 @@ using Tasks.Api.Infrastructure.Data;
 using Tasks.Api.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
-    {
-        config.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateAudience = false,
-            ValidateIssuer = false,
-        };
-
-        config.Authority = "http://identity-server:80";
-        config.Audience = "m2m.client";
-
-        config.RequireHttpsMetadata = false;
-    });
 
 builder.Services.AddControllers();
 
