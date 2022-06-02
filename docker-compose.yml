@@ -25,7 +25,7 @@ services:
         image: ghcr.io/valerra45/gw:main
         container_name: 'gw'
         ports:
-            - "8001:80"
+            - "10001:80"
         links:
             - postgres    
         depends_on:
