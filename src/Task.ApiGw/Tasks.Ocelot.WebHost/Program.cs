@@ -19,7 +19,7 @@ builder.Services.AddAuthentication()
             ValidateIssuer = false,
         };
 
-        config.Authority = "https://localhost:10001";
+        config.Authority = "http://identity-server:80";
         config.Audience = "m2m.client";
 
         config.RequireHttpsMetadata = false;
