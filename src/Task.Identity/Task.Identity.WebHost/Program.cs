@@ -1,5 +1,7 @@
+using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Tasks.Identity.Aplication.Consumers;
 using Tasks.Identity.Core.Abstractions;
 using Tasks.Identity.Infrastructure;
 using Tasks.Identity.Infrastructure.Data;
@@ -34,6 +36,30 @@ builder.Services.AddIdentityServer()
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 builder.Services.AddCors();
+
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<CreateUserConsumer>();
+
+    x.UsingRabbitMq((ctx, cfg) =>
+    {
+        var massTransitSection = builder.Configuration.GetSection("MassTransit");
+        var url = massTransitSection.GetValue<string>("Url");
+        var host = massTransitSection.GetValue<string>("Host");
+        var userName = massTransitSection.GetValue<string>("UserName");
+        var password = massTransitSection.GetValue<string>("Password");
+
+        cfg.Host($"rabbitmq://{url}/{host}", configurator =>
+        {
+            configurator.Username(userName);
+            configurator.Password(password);
+        });
+
+        cfg.AutoDelete = true;
+
+        cfg.ConfigureEndpoints(ctx);
+    });
+});
 
 
 var app = builder.Build();
