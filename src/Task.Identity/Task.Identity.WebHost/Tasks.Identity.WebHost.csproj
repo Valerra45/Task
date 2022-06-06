@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Task.Identity.Infrastructure\Tasks.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="..\Tasks.Identity.Aplication\Tasks.Identity.Aplication.csproj" />
   </ItemGroup>
 
 </Project>
