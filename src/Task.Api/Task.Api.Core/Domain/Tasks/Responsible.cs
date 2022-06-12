@@ -2,7 +2,7 @@
 {
     public class Responsible : BaseEntity
     {
-        public Guid GUID { get; set; }
+        public Guid UtId { get; set; }
 
         public string? FirstName { get; set; }
 

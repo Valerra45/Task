@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasks.Api.Application.Services.TaskTypes;
+using Tasks.Api.Application.Services.TaskTypes.Commands;
 using Tasks.Api.Application.Services.TaskTypes.Queryes;
 
 namespace Tasks.Api.WebHost.Controllers
@@ -19,11 +19,43 @@ namespace Tasks.Api.WebHost.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskTypeResponse>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<TaskTypeResponse>>> GetTaskTypesAsync()
         {
             var response = await _mediatr.Send(new GetAllTaskTypesQuery());
 
             return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TaskTypeResponse>> GetTaskTypeAsync(Guid id)
+        {
+            var response = await _mediatr.Send(new GetTaskTypeByIdQuery { Id = id });
+
+            return Ok(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateTaskTypeAsync(TaskTypeCreateOrEdit request)
+        {
+            var response = await _mediatr.Send(new CreateTaskTypeCommand(request));
+
+            return CreatedAtAction(nameof(GetTaskTypeAsync), new { id = response }, response);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTaskTypeAsync(Guid id, TaskTypeCreateOrEdit request)
+        {
+            var response = await _mediatr.Send(new UpdateTaskTypeCommand(id, request));
+
+            return CreatedAtAction(nameof(GetTaskTypeAsync), new { id = response }, response);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteTaskType(Guid id)
+        {
+            await _mediatr.Send(new DeleteTaskTypeCommand(id));
+
+            return NoContent();
         }
     }
 }

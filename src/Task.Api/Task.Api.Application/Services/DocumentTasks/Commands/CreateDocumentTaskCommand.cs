@@ -54,7 +54,7 @@ namespace Tasks.Api.Application.Services.Tasks.Commands
         {
             var documentTask = new DocumentTask();
 
-            documentTask.GUID = request.GUID;
+            documentTask.UtId = request.UtId;
 
             documentTask.Author = await GetResponsibleAsync(request.Author);
 
@@ -81,14 +81,14 @@ namespace Tasks.Api.Application.Services.Tasks.Commands
 
         private async Task<Responsible> GetResponsibleAsync(CreateOrEditResponsible requestAuthor)
         {
-            var responsible = await _responsibleRepository.GetFirstWhere(x => x.GUID == requestAuthor.GUID);
+            var responsible = await _responsibleRepository.GetFirstWhere(x => x.UtId == requestAuthor.GUID);
 
             return responsible;
         }
 
         private async Task<Partner> GetPartnerAsync(CreateOrEditPartner requestPartner)
         {
-            var partner = await _partnerRepositpry.GetFirstWhere(x => x.GUID == requestPartner.GUID);
+            var partner = await _partnerRepositpry.GetFirstWhere(x => x.UtId == requestPartner.GUID);
 
             return partner;
         }
