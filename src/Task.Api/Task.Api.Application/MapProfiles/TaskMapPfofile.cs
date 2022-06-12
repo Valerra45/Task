@@ -12,7 +12,10 @@ namespace Tasks.Api.Application.MapProfiles
         public TaskMapPfofile()
         {
             CreateMap<TaskType, TaskTypeResponse>()
-              .ReverseMap();
+                .ReverseMap();
+
+            CreateMap<TaskType, TaskTypeCreateOrEdit>()
+                .ReverseMap();
 
             CreateMap<Importance, ImportanceResponse>()
                 .ReverseMap();
