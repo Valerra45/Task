@@ -4,7 +4,7 @@ namespace Tasks.Api.Core.Domain.Tasks
 {
     public class DocumentTask : BaseEntity
     {
-        public Guid GUID { get; set; }
+        public Guid UtId { get; set; }
 
         [NotMapped]
         public virtual Responsible? Author { get; set; }

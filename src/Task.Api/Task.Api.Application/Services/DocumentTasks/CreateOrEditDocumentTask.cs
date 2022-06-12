@@ -5,7 +5,7 @@ namespace Tasks.Api.Application.Services.Tasks
 {
     public class CreateOrEditDocumentTask
     {
-        public Guid GUID { get; set; }
+        public Guid UtId { get; set; }
 
         public virtual CreateOrEditResponsible? Author { get; set; }
 

@@ -2,7 +2,7 @@
 {
     public class Partner : BaseEntity
     {
-        public Guid GUID { get; set; }
+        public Guid UtId { get; set; }
 
         public string? Name { get; set; }
 
