@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasks.Api.Core.Abstractions;
 using Tasks.Api.Core.Domain.Tasks;
+using Tasks.Api.Core.Exceptions;
 
 namespace Tasks.Api.Application.Services.Importances.Queryes
 {
@@ -29,9 +30,14 @@ namespace Tasks.Api.Application.Services.Importances.Queryes
 
         public async Task<ImportanceResponse> Handle(GetImportanceByIdQuery request, CancellationToken cancellationToken)
         {
-            var taskType = await _importanceRepository.GetByIdAsync(request.Id);
+            var importance = await _importanceRepository.GetByIdAsync(request.Id);
 
-            return _mapper.Map<ImportanceResponse>(taskType);
+            if (importance is null)
+            {
+                throw new EntityNotFoundException($"{nameof(Importance)} with id '{request.Id}' doesn't exist");
+            }
+
+            return _mapper.Map<ImportanceResponse>(importance);
         }
     }
 }

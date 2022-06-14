@@ -1,8 +1,8 @@
 ﻿namespace Tasks.Api.Application.Services.Responsibles
 {
-    public class CreateOrEditResponsible
+    public class ResponsibleCreateOrEdit
     {
-        public Guid GUID { get; set; }
+        public Guid UtId { get; set; }
 
         public string? FirstName { get; set; }
 

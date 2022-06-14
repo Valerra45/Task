@@ -14,8 +14,6 @@
     <Folder Include="Services\DocumentTasks\Queryes\" />
     <Folder Include="Services\Paetners\Commands\" />
     <Folder Include="Services\Paetners\Queryes\" />
-    <Folder Include="Services\Responsibles\Commadns\" />
-    <Folder Include="Services\Responsibles\Queryes\" />
     <Folder Include="Services\Users\Commands\" />
     <Folder Include="Services\Users\Queryes\" />
   </ItemGroup>

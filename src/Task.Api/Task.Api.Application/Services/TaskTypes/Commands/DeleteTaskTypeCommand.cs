@@ -10,7 +10,7 @@ using Tasks.Api.Core.Exceptions;
 
 namespace Tasks.Api.Application.Services.TaskTypes.Commands
 {
-    public class DeleteTaskTypeCommand: IRequest
+    public class DeleteTaskTypeCommand : IRequest
     {
         public Guid Id { get; }
 

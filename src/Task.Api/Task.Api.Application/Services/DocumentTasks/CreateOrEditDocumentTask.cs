@@ -7,9 +7,9 @@ namespace Tasks.Api.Application.Services.Tasks
     {
         public Guid UtId { get; set; }
 
-        public virtual CreateOrEditResponsible? Author { get; set; }
+        public virtual ResponsibleCreateOrEdit? Author { get; set; }
 
-        public virtual CreateOrEditResponsible? Executor { get; set; }
+        public virtual ResponsibleCreateOrEdit? Executor { get; set; }
 
         public string? Name { get; set; }
 

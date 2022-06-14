@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasks.Api.Core.Abstractions;
 using Tasks.Api.Core.Domain.Tasks;
+using Tasks.Api.Core.Exceptions;
 
 namespace Tasks.Api.Application.Services.TaskTypes.Queryes
 {
@@ -30,6 +31,11 @@ namespace Tasks.Api.Application.Services.TaskTypes.Queryes
         public async Task<TaskTypeResponse> Handle(GetTaskTypeByIdQuery request, CancellationToken cancellationToken)
         {
             var taskType = await _taskTypeRepository.GetByIdAsync(request.Id);
+
+            if (taskType is null)
+            {
+                throw new EntityNotFoundException($"{nameof(TaskType)} with id '{request.Id}' doesn't exist");
+            }
 
             return _mapper.Map<TaskTypeResponse>(taskType);
         }

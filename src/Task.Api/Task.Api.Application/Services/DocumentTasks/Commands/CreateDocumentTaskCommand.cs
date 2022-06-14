@@ -79,9 +79,9 @@ namespace Tasks.Api.Application.Services.Tasks.Commands
             return documentTask;
         }
 
-        private async Task<Responsible> GetResponsibleAsync(CreateOrEditResponsible requestAuthor)
+        private async Task<Responsible> GetResponsibleAsync(ResponsibleCreateOrEdit requestAuthor)
         {
-            var responsible = await _responsibleRepository.GetFirstWhere(x => x.UtId == requestAuthor.GUID);
+            var responsible = await _responsibleRepository.GetFirstWhere(x => x.UtId == requestAuthor.UtId);
 
             return responsible;
         }
