@@ -15,7 +15,7 @@ namespace Tasks.Api.Application.Services.TaskTypes.Queryes
         public Guid Id { get; set; }
     }
 
-    public class GetTaskTypeByIdQueryHandler: IRequestHandler<GetTaskTypeByIdQuery, TaskTypeResponse>
+    public class GetTaskTypeByIdQueryHandler : IRequestHandler<GetTaskTypeByIdQuery, TaskTypeResponse>
     {
         private readonly IMapper _mapper;
         private readonly IRepository<TaskType> _taskTypeRepository;

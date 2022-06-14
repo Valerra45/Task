@@ -51,7 +51,7 @@ namespace Tasks.Api.WebHost.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTaskType(Guid id)
+        public async Task<IActionResult> DeleteTaskTypeAsync(Guid id)
         {
             await _mediatr.Send(new DeleteTaskTypeCommand(id));
 

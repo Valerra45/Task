@@ -20,6 +20,9 @@ namespace Tasks.Api.Application.MapProfiles
             CreateMap<Importance, ImportanceResponse>()
                 .ReverseMap();
 
+            CreateMap<Importance, ImportanceCreateOrEdit>()
+             .ReverseMap();
+
             CreateMap<Responsible, CreateOrEditResponsible>()
                 .ReverseMap();
 
