@@ -32,7 +32,8 @@ app.UseCors(builder =>
     builder
     .AllowAnyHeader()
     .AllowAnyMethod()
-    .AllowAnyOrigin();
+    .AllowAnyOrigin()
+    .WithMethods("GET", "PUT", "DELETE", "POST", "PATCH");
 });
 
 await app.UseOcelot();

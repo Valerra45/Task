@@ -77,7 +77,8 @@ app.UseCors(builder =>
     builder
     .AllowAnyHeader()
     .AllowAnyMethod()
-    .AllowAnyOrigin();
+    .AllowAnyOrigin()
+    .WithMethods("GET", "PUT", "DELETE", "POST", "PATCH");
 });
 
 app.UseSwagger();
