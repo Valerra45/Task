@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using Tasks.Api.Application.Services.Paetners;
+using Tasks.Api.Application.Services.Partners;
 using Tasks.Api.Application.Services.Responsibles;
 using Tasks.Api.Core.Abstractions;
 using Tasks.Api.Core.Domain.Tasks;
@@ -86,9 +86,9 @@ namespace Tasks.Api.Application.Services.Tasks.Commands
             return responsible;
         }
 
-        private async Task<Partner> GetPartnerAsync(CreateOrEditPartner requestPartner)
+        private async Task<Partner> GetPartnerAsync(PartnerCreateOrEdit requestPartner)
         {
-            var partner = await _partnerRepositpry.GetFirstWhere(x => x.UtId == requestPartner.GUID);
+            var partner = await _partnerRepositpry.GetFirstWhere(x => x.UtId == requestPartner.UtId);
 
             return partner;
         }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Tasks.Api.Application.Services.Importances;
-using Tasks.Api.Application.Services.Paetners;
+using Tasks.Api.Application.Services.Partners;
 using Tasks.Api.Application.Services.Responsibles;
 using Tasks.Api.Application.Services.TaskTypes;
 using Tasks.Api.Core.Domain.Tasks;
@@ -26,10 +26,13 @@ namespace Tasks.Api.Application.MapProfiles
             CreateMap<Responsible, ResponsibleCreateOrEdit>()
                 .ReverseMap();
 
-            CreateMap<Responsible, ResponsibleResponse>()
+            CreateMap<Responsible, ResponsibleResponse>() 
                 .ReverseMap();
 
-            CreateMap<Partner, CreateOrEditPartner>()
+            CreateMap<Partner, PartnerCreateOrEdit>()
+                .ReverseMap();
+
+            CreateMap<Partner, PartnerResponse>()
                 .ReverseMap();
         }
     }

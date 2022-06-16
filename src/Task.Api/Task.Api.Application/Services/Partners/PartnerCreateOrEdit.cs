@@ -1,8 +1,8 @@
-﻿namespace Tasks.Api.Application.Services.Paetners
+﻿namespace Tasks.Api.Application.Services.Partners
 {
-    public class CreateOrEditPartner
+    public class PartnerCreateOrEdit
     {
-        public Guid GUID { get; set; }
+        public Guid UtId { get; set; }
 
         public string? Name { get; set; }
 

@@ -1,4 +1,4 @@
-﻿using Tasks.Api.Application.Services.Paetners;
+﻿using Tasks.Api.Application.Services.Partners;
 using Tasks.Api.Application.Services.Responsibles;
 
 namespace Tasks.Api.Application.Services.Tasks
@@ -17,7 +17,7 @@ namespace Tasks.Api.Application.Services.Tasks
 
         public string? Report { get; set; }
 
-        public virtual CreateOrEditPartner? Partner { get; set; }
+        public virtual PartnerCreateOrEdit? Partner { get; set; }
 
         public string? Importance { get; set; }
 

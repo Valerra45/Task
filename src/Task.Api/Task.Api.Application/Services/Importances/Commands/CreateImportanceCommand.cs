@@ -19,7 +19,7 @@ namespace Tasks.Api.Application.Services.Importances.Commands
             Importance = importance;
         }
 
-        public class CreateImportanceCommandHandler: IRequestHandler<CreateImportanceCommand, Guid>
+        public class CreateImportanceCommandHandler : IRequestHandler<CreateImportanceCommand, Guid>
         {
             private readonly IMapper _mapper;
             private readonly IRepository<Importance> _importanceRepository;

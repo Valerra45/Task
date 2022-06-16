@@ -13,9 +13,9 @@ namespace Tasks.Api.Application.Services.Importances.Commands
     public class UpdateImportanceCommand : IRequest<Guid>
     {
         public Guid Id { get; }
-        
+
         public ImportanceCreateOrEdit Importance { get; }
-        
+
         public UpdateImportanceCommand(Guid id, ImportanceCreateOrEdit importance)
         {
             Id = id;
@@ -24,7 +24,7 @@ namespace Tasks.Api.Application.Services.Importances.Commands
 
     }
 
-    public class UpdateImportanceCommandHandler: IRequestHandler<UpdateImportanceCommand, Guid>
+    public class UpdateImportanceCommandHandler : IRequestHandler<UpdateImportanceCommand, Guid>
     {
         private readonly IRepository<Importance> _importanceRepository;
 
@@ -43,6 +43,7 @@ namespace Tasks.Api.Application.Services.Importances.Commands
             }
 
             importance.Name = request.Importance.Name;
+            importance.Update = DateTime.Now;
 
             await _importanceRepository.UpdateAsync(importance);
 

@@ -42,6 +42,7 @@ namespace Tasks.Api.Application.Services.TaskTypes.Commands
             }
 
             taskType.Name = request.TaskType.Name;
+            taskType.Update = DateTime.Now;
 
             await _taskTypeRepository.UpdateAsync(taskType);
 

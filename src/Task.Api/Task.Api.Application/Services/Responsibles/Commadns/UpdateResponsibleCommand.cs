@@ -43,6 +43,7 @@ namespace Tasks.Api.Application.Services.Responsibles.Commadns
             responsible.FirstName = request.Responsible.FirstName;
             responsible.LastName = request.Responsible.LastName;
             responsible.User = request.Responsible.User;
+            responsible.Update = DateTime.Now;
 
             await _responsibleRepository.UpdateAsync(responsible);
 
