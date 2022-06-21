@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Tasks.Api.Application.Services.DocumentTasks;
 using Tasks.Api.Application.Services.Importances;
 using Tasks.Api.Application.Services.Partners;
 using Tasks.Api.Application.Services.Responsibles;
+using Tasks.Api.Application.Services.Tasks;
 using Tasks.Api.Application.Services.TaskTypes;
 using Tasks.Api.Core.Domain.Tasks;
 
@@ -21,7 +23,7 @@ namespace Tasks.Api.Application.MapProfiles
                 .ReverseMap();
 
             CreateMap<Importance, ImportanceCreateOrEdit>()
-             .ReverseMap();
+                .ReverseMap();
 
             CreateMap<Responsible, ResponsibleCreateOrEdit>()
                 .ReverseMap();
@@ -29,10 +31,19 @@ namespace Tasks.Api.Application.MapProfiles
             CreateMap<Responsible, ResponsibleResponse>() 
                 .ReverseMap();
 
-            CreateMap<Partner, PartnerCreateOrEdit>()
+            CreateMap<Partner, PartnerCreateOrEdit>() 
                 .ReverseMap();
 
-            CreateMap<Partner, PartnerResponse>()
+            CreateMap<Partner, PartnerResponse>() 
+                .ReverseMap();
+
+            CreateMap<DocumentTask, DocumentTaskCreateOrEdit>()
+                .ReverseMap();
+
+            CreateMap<DocumentTask, DocumentTaskShortResponse>()
+                .ReverseMap();
+
+            CreateMap<DocumentTask, DocumentTaskResponse>()
                 .ReverseMap();
         }
     }

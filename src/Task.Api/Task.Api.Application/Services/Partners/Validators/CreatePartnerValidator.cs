@@ -15,15 +15,6 @@ namespace Tasks.Api.Application.Services.Partners.Validators
             RuleFor(x => x.Partner.Name)
                 .NotEmpty()
                 .WithMessage("{PropertyName} is not assigned");
-
-            RuleFor(x => x.Partner.Address)
-                .NotEmpty()
-                .WithMessage("{PropertyName} is not assigned");
-
-            RuleFor(x => x.Partner.Phone)
-                .NotEmpty()
-                .WithMessage("{PropertyName} is not assigned");
-
         }
     }
 }
