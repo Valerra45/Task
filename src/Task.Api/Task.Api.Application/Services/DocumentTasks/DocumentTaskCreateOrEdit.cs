@@ -3,13 +3,13 @@ using Tasks.Api.Application.Services.Responsibles;
 
 namespace Tasks.Api.Application.Services.Tasks
 {
-    public class CreateOrEditDocumentTask
+    public class DocumentTaskCreateOrEdit
     {
         public Guid UtId { get; set; }
 
-        public virtual ResponsibleCreateOrEdit? Author { get; set; }
+        public Guid AuthorId { get; set; }
 
-        public virtual ResponsibleCreateOrEdit? Executor { get; set; }
+        public Guid ExecutorId { get; set; }
 
         public string? Name { get; set; }
 
@@ -17,13 +17,13 @@ namespace Tasks.Api.Application.Services.Tasks
 
         public string? Report { get; set; }
 
-        public virtual PartnerCreateOrEdit? Partner { get; set; }
+        public Guid PartnerId { get; set; }
 
-        public string? Importance { get; set; }
+        public Guid ImportanceId { get; set; }
 
         public int Priority { get; set; }
 
-        public string? TaskType { get; set; }
+        public Guid TaskTypeId { get; set; }
 
         public bool Viewed { get; set; }
         

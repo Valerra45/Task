@@ -1,40 +1,43 @@
-﻿using AutoMapper;
-using MediatR;
-using Tasks.Api.Application.Services.Partners;
-using Tasks.Api.Application.Services.Responsibles;
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Tasks.Api.Application.Services.Tasks;
 using Tasks.Api.Core.Abstractions;
 using Tasks.Api.Core.Domain.Tasks;
 using Tasks.Api.Core.Exceptions;
 
-namespace Tasks.Api.Application.Services.Tasks.Commands
+namespace Tasks.Api.Application.Services.DocumentTasks.Commands
 {
-    public class CreateDocumentTaskCommand : IRequest<Guid>
+    public class UpdateDocumentTaskCommand : IRequest<Guid>
     {
+        public Guid Id { get; }
+
         public DocumentTaskCreateOrEdit DocumentTask { get; }
 
-        public CreateDocumentTaskCommand(DocumentTaskCreateOrEdit documentTask)
+        public UpdateDocumentTaskCommand(Guid id, DocumentTaskCreateOrEdit documentTask)
         {
+            Id = id;
             DocumentTask = documentTask;
         }
     }
 
-    public class CreateDocumentTaskCommandHandler : IRequestHandler<CreateDocumentTaskCommand, Guid>
+    public class UpdateDocumentTaskCommandHandler : IRequestHandler<UpdateDocumentTaskCommand, Guid>
     {
-        private readonly IMapper _mapper;
         private readonly IRepository<DocumentTask> _documentTaskRepository;
         private readonly IRepository<Responsible> _responsibleRepository;
         private readonly IRepository<Partner> _partnerRepositpry;
         private readonly IRepository<Importance> _importanceRepositpry;
         private readonly IRepository<TaskType> _taskTypeRepository;
 
-        public CreateDocumentTaskCommandHandler(IMapper mapper,
-            IRepository<DocumentTask> documentTaskRepository,
+        public UpdateDocumentTaskCommandHandler(IRepository<DocumentTask> documentTaskRepository,
             IRepository<Responsible> responsibleRepository,
             IRepository<Partner> partnerRepositpry,
             IRepository<Importance> importanceRepositpry,
             IRepository<TaskType> taskTypeRepository)
         {
-            _mapper = mapper;
             _documentTaskRepository = documentTaskRepository;
             _responsibleRepository = responsibleRepository;
             _partnerRepositpry = partnerRepositpry;
@@ -42,9 +45,22 @@ namespace Tasks.Api.Application.Services.Tasks.Commands
             _taskTypeRepository = taskTypeRepository;
         }
 
-        public async Task<Guid> Handle(CreateDocumentTaskCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(UpdateDocumentTaskCommand request, CancellationToken cancellationToken)
         {
-            var documentTask =  _mapper.Map<DocumentTask>(request.DocumentTask);
+            var documentTask = await _documentTaskRepository.GetByIdAsync(request.Id);
+
+            if (documentTask is null)
+            {
+                throw new EntityNotFoundException($"{nameof(DocumentTask)} with id '{request.Id}' doesn't exist");
+            }
+
+            documentTask.Name = request.DocumentTask.Name;
+            documentTask.Report = request.DocumentTask.Report;
+            documentTask.Priority = request.DocumentTask.Priority;
+            documentTask.Description = request.DocumentTask.Description;
+            documentTask.DateEnd = request.DocumentTask.DateEnd;
+            documentTask.DateCompleted = request.DocumentTask.DateCompleted;
+            documentTask.Completed = request.DocumentTask.Completed;
 
             var author = await _responsibleRepository.GetByIdAsync(request.DocumentTask.AuthorId);
 
@@ -87,9 +103,11 @@ namespace Tasks.Api.Application.Services.Tasks.Commands
             documentTask.Importance = importance;
             documentTask.TaskType = taskType;
 
-            await _documentTaskRepository.AddAsync(documentTask);
+            documentTask.Update = DateTime.Now;
+
+            await _documentTaskRepository.UpdateAsync(documentTask);
 
             return documentTask.Id;
-        } 
+        }
     }
 }
