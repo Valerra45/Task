@@ -5,6 +5,8 @@
         public BaseEntity()
         {
             Created = DateTime.Now;
+
+            Update = Created;
         }
 
         public Guid Id { get; set; }
