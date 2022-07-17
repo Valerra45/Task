@@ -22,7 +22,10 @@ namespace Tasks.Identity.Infrastructure.Data
 
         public void Initialize()
         {
-            _context.Database.EnsureCreated();
+            if (!_context.Database.EnsureCreated())
+            {
+                return;
+            }
 
             var adminRole = new IdentityRole("Admin");
 

@@ -22,7 +22,7 @@ namespace Tasks.Api.WebHost.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DocumentTaskShortResponse>>> GetDocumentTasksAsync()
+        public async Task<ActionResult<IEnumerable<DocumentTaskResponse>>> GetDocumentTasksAsync()
         {
             var responce = await _mediatr.Send(new GetAllDocumentTasksQuery());
 
