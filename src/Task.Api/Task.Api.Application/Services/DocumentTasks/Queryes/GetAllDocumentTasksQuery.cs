@@ -10,9 +10,9 @@ using Tasks.Api.Core.Domain.Tasks;
 
 namespace Tasks.Api.Application.Services.DocumentTasks.Queryes
 {
-    public class GetAllDocumentTasksQuery : IRequest<IEnumerable<DocumentTaskShortResponse>> { }
+    public class GetAllDocumentTasksQuery : IRequest<IEnumerable<DocumentTaskResponse>> { }
 
-    public class GetAllDocumentTasksQueryHandler : IRequestHandler<GetAllDocumentTasksQuery, IEnumerable<DocumentTaskShortResponse>>
+    public class GetAllDocumentTasksQueryHandler : IRequestHandler<GetAllDocumentTasksQuery, IEnumerable<DocumentTaskResponse>>
     {
         private readonly IMapper _mapper;
         private readonly IRepository<DocumentTask> _documentTaskRepository;
@@ -24,11 +24,11 @@ namespace Tasks.Api.Application.Services.DocumentTasks.Queryes
             _documentTaskRepository = documentTaskRepository;
         }
 
-        public async Task<IEnumerable<DocumentTaskShortResponse>> Handle(GetAllDocumentTasksQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<DocumentTaskResponse>> Handle(GetAllDocumentTasksQuery request, CancellationToken cancellationToken)
         {
             var documentTasks = await _documentTaskRepository.GetAllAsync();
 
-            return _mapper.Map<IEnumerable<DocumentTaskShortResponse>>(documentTasks);
+            return _mapper.Map<IEnumerable<DocumentTaskResponse>>(documentTasks);
         }
     }
 }

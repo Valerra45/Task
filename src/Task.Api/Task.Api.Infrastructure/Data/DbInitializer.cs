@@ -13,8 +13,6 @@ namespace Tasks.Api.Infrastructure.Data
 
         public void Initialize()
         {
-            _context.Database.EnsureDeleted();
-
             if (_context.Database.EnsureCreated())
             {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.

@@ -16,7 +16,11 @@ namespace Tasks.Api.Application.Services.DocumentTasks
         public string? Name { get; set; }
        
         public int Priority { get; set; }
-        
+
+        public string? Description { get; set; }
+
+        public string? Report { get; set; }
+
         public PartnerResponse? Partner { get; set; }   
        
         public TaskTypeResponse? TaskType { get; set; }
