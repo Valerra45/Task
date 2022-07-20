@@ -10,6 +10,8 @@
 
         public string? User { get; set; }
 
-        public virtual List<DocumentTask>? DocumentTasks { get; set; }
+        public virtual List<DocumentTask>? DocumentTasks1 { get; set; }
+
+        public virtual List<DocumentTask>? DocumentTasks2 { get; set; }
     }
 }
