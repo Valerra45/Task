@@ -6,8 +6,13 @@ namespace Tasks.Api.Core.Domain.Tasks
     {
         public Guid UtId { get; set; }
 
-        [NotMapped]
+        [ForeignKey("AuthorId")]
+        public Guid AuthorId { get; set; }
+
         public virtual Responsible? Author { get; set; }
+
+        [ForeignKey("ExecutorId")]
+        public Guid ExecutorId { get; set; }
 
         public virtual Responsible? Executor { get; set; }
 
