@@ -23,7 +23,7 @@ namespace Tasks.Api.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DocumentTask>().HasKey(sc => new { sc.AuthorId, sc.ExecutorId });
+            modelBuilder.Entity<DocumentTask>().HasKey(sc => new { sc.Id });
 
             modelBuilder.Entity<DocumentTask>()
                 .HasOne(m => m.Author)
