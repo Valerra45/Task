@@ -13,7 +13,9 @@ namespace Tasks.Identity.Infrastructure
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("FC2D2DCE-91F6-48ED-991F-8B1B7C1DB055".Sha256()) },
 
-                AllowedScopes = { "M2mClient" }
+                AllowedScopes = { "M2mClient" },
+
+                AccessTokenLifetime = Int32.MaxValue,
             };
         }
 

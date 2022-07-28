@@ -29,6 +29,22 @@ namespace Tasks.Api.WebHost.Controllers
             return Ok(responce);
         }
 
+        [HttpGet("time")]
+        public async Task<ActionResult<IEnumerable<DocumentTaskResponse>>> GetDocumentTasksByTimeAsync([FromQuery] DocumentTaskByTimeRequest byTime)
+        {
+            var responce = await _mediatr.Send(new GetDocumentTaskByTimeQuery { ByTimeRequest = byTime });
+
+            return Ok(responce);
+        }
+
+        [HttpGet("user")]
+        public async Task<ActionResult<IEnumerable<DocumentTaskResponse>>> GetDocumentTasksByUserAsync([FromQuery] DocumentTaskByUserNameRequest byUser)
+        {
+            var responce = await _mediatr.Send(new GetDocumentTaskByUserNameQuery { ByUserName = byUser });
+
+            return Ok(responce);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<DocumentTaskResponse>> GetDocumentTaskAsync(Guid id)
         {
