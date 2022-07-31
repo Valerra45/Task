@@ -15,7 +15,9 @@ namespace Tasks.Identity.Infrastructure
 
                 AllowedScopes = { "M2mClient" },
 
-                AccessTokenLifetime = Int32.MaxValue,
+                AccessTokenLifetime = (int)new TimeSpan(14, 0, 0, 0).TotalSeconds,
+
+                AllowOfflineAccess = true
             };
         }
 
