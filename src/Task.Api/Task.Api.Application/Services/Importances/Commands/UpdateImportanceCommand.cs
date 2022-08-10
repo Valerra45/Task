@@ -43,7 +43,7 @@ namespace Tasks.Api.Application.Services.Importances.Commands
             }
 
             importance.Name = request.Importance.Name;
-            importance.Update = DateTime.Now;
+            importance.Update = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimeZoneInfo.Local.Id, "Russian Standard Time");
 
             await _importanceRepository.UpdateAsync(importance);
 

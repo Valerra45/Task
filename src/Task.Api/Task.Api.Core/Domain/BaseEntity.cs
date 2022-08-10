@@ -4,7 +4,7 @@
     {
         public BaseEntity()
         {
-            Created = DateTime.Now;
+            Created = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimeZoneInfo.Local.Id, "Russian Standard Time");
 
             Update = Created;
         }

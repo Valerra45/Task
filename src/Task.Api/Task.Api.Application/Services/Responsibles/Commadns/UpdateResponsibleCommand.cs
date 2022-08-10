@@ -43,7 +43,7 @@ namespace Tasks.Api.Application.Services.Responsibles.Commadns
             responsible.FirstName = request.Responsible.FirstName;
             responsible.LastName = request.Responsible.LastName;
             responsible.User = request.Responsible.User;
-            responsible.Update = DateTime.Now;
+            responsible.Update = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimeZoneInfo.Local.Id, "Russian Standard Time");
 
             await _responsibleRepository.UpdateAsync(responsible);
 

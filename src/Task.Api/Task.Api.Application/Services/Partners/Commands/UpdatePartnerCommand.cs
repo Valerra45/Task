@@ -49,7 +49,7 @@ namespace Tasks.Api.Application.Services.Partners.Commands
             partner.Address = request.Partner.Address;
             partner.Description = request.Partner.Description;
             partner.Phone = request.Partner.Phone;
-            partner.Update = DateTime.Now;
+            partner.Update = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimeZoneInfo.Local.Id, "Russian Standard Time");
 
             await _partnerRepository.UpdateAsync(partner);
 
