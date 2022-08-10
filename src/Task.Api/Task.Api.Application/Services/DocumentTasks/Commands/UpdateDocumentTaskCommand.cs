@@ -103,7 +103,7 @@ namespace Tasks.Api.Application.Services.DocumentTasks.Commands
             documentTask.Importance = importance;
             documentTask.TaskType = taskType;
 
-            documentTask.Update = DateTime.Now;
+            documentTask.Update = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimeZoneInfo.Local.Id, "Russian Standard Time");
 
             await _documentTaskRepository.UpdateAsync(documentTask);
 

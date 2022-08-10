@@ -42,7 +42,7 @@ namespace Tasks.Api.Application.Services.TaskTypes.Commands
             }
 
             taskType.Name = request.TaskType.Name;
-            taskType.Update = DateTime.Now;
+            taskType.Update = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimeZoneInfo.Local.Id, "Russian Standard Time");
 
             await _taskTypeRepository.UpdateAsync(taskType);
 
