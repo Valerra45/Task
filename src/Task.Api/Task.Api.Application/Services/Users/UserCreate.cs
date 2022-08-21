@@ -1,6 +1,6 @@
 ﻿namespace Tasks.Api.Application.Services.Users
 {
-    public class CreateOrEditUser
+    public class UserCreate
     {
         public string? Name { get; set; }
 

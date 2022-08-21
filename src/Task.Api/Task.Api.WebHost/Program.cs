@@ -53,7 +53,8 @@ builder.Services.AddMassTransit(x =>
             configurator.Password(password);
         });
 
-        cfg.Message<IUserContract>(cfg => { });
+        cfg.Message<ICreateUserContract>(cfg => { });
+        cfg.Message<IUpdateUserContract>(cfg => { });
 
         cfg.AutoDelete = true;
 
@@ -64,7 +65,6 @@ builder.Services.AddMassTransit(x =>
 builder.Services.AddTransient<ExceptionHandlerMiddleware>();
 builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(PipelineWithValidationCommandBehavior<,>));
 builder.Services.AddValidatorsFromAssembly(typeof(GetAllTaskTypesQuery).Assembly);
-
 
 var app = builder.Build();
 
@@ -95,7 +95,6 @@ app.UseAuthorization();
 app.MapDefaultControllerRoute();
 
 app.Run();
-
 
 void Initialize(IHost app)
 {

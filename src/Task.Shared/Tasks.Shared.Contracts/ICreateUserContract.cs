@@ -1,6 +1,6 @@
 ﻿namespace Tasks.Shared.Contracts
 {
-    public interface IUserContract
+    public interface ICreateUserContract
     {
         public string Name { get; set; }
 

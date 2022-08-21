@@ -4,6 +4,7 @@ services:
 
     #Api
     api:
+        restart: unless-stopped
         image: ghcr.io/valerra45/api:main
         container_name: 'api'
         links:
@@ -13,6 +14,7 @@ services:
    
     #IS4
     identity-server:
+        restart: unless-stopped
         image: ghcr.io/valerra45/identityserver:main
         container_name: 'identity-server'
         links:
@@ -22,6 +24,7 @@ services:
 
     #GW
     gw:
+        restart: unless-stopped
         image: ghcr.io/valerra45/gw:main
         container_name: 'gw'
         ports:
@@ -61,7 +64,7 @@ services:
     #RabbitMQ
     message-broker:
         image: rabbitmq:3-management
-        restart: always
+        restart: unless-stopped
         hostname: "rabbitmq"
         labels:
             NAME: "rabbitmq"

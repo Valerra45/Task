@@ -12,9 +12,9 @@ namespace Tasks.Api.Application.Services.Users.Commands
 {
     public class CreateUserCommand : IRequest
     {
-        public CreateOrEditUser User { get; }
+        public UserCreate User { get; }
 
-        public CreateUserCommand(CreateOrEditUser user)
+        public CreateUserCommand(UserCreate user)
         {
             User = user;
         }
@@ -31,7 +31,7 @@ namespace Tasks.Api.Application.Services.Users.Commands
 
         public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            await _publishEndpoint.Publish<IUserContract>(new
+            await _publishEndpoint.Publish<ICreateUserContract>(new
             {
                 Name = request.User.Name,
                 Email = request.User.Email,
