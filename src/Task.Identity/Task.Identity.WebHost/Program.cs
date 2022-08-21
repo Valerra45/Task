@@ -40,6 +40,7 @@ builder.Services.AddCors();
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<CreateUserConsumer>();
+    x.AddConsumer<UpdateUserConsumer>();
 
     x.UsingRabbitMq((ctx, cfg) =>
     {

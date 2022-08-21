@@ -9,7 +9,7 @@ using Tasks.Shared.Contracts;
 
 namespace Tasks.Identity.Aplication.Consumers
 {
-    public class CreateUserConsumer : IConsumer<IUserContract>
+    public class CreateUserConsumer : IConsumer<ICreateUserContract>
     {
         private readonly UserManager<IdentityUser> _userManager;
 
@@ -18,7 +18,7 @@ namespace Tasks.Identity.Aplication.Consumers
             _userManager = userManager;
         }
 
-        public async Task Consume(ConsumeContext<IUserContract> ctx)
+        public async Task Consume(ConsumeContext<ICreateUserContract> ctx)
         {
             var user = new IdentityUser
             {
