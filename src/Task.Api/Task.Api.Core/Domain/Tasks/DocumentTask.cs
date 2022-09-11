@@ -39,5 +39,9 @@ namespace Tasks.Api.Core.Domain.Tasks
         public DateTime? DateEnd { get; set; }
 
         public DateTime? DateCompleted { get; set; }
+
+        public int OffSet { get; set; }
+
+        public virtual List<TaskProduct>? TaskProducts { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Tasks.Api.Application.Services.DocumentTasks;
 using Tasks.Api.Application.Services.Importances;
 using Tasks.Api.Application.Services.Partners;
+using Tasks.Api.Application.Services.Products;
 using Tasks.Api.Application.Services.Responsibles;
 using Tasks.Api.Application.Services.Tasks;
 using Tasks.Api.Application.Services.TaskTypes;
@@ -28,13 +29,13 @@ namespace Tasks.Api.Application.MapProfiles
             CreateMap<Responsible, ResponsibleCreateOrEdit>()
                 .ReverseMap();
 
-            CreateMap<Responsible, ResponsibleResponse>() 
+            CreateMap<Responsible, ResponsibleResponse>()
                 .ReverseMap();
 
-            CreateMap<Partner, PartnerCreateOrEdit>() 
+            CreateMap<Partner, PartnerCreateOrEdit>()
                 .ReverseMap();
 
-            CreateMap<Partner, PartnerResponse>() 
+            CreateMap<Partner, PartnerResponse>()
                 .ReverseMap();
 
             CreateMap<DocumentTask, DocumentTaskCreateOrEdit>()
@@ -45,6 +46,13 @@ namespace Tasks.Api.Application.MapProfiles
 
             CreateMap<DocumentTask, DocumentTaskResponse>()
                 .ReverseMap();
+
+            CreateMap<Product, ProductResponse>()
+                .ReverseMap();
+
+            CreateMap<Product, ProductCreateOrEdit>()
+                .ReverseMap();
+
         }
     }
 }
