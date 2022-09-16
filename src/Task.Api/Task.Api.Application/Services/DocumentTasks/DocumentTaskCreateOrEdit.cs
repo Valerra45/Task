@@ -1,4 +1,5 @@
-﻿using Tasks.Api.Application.Services.Partners;
+﻿using Tasks.Api.Application.Services.DocumentTasks;
+using Tasks.Api.Application.Services.Partners;
 using Tasks.Api.Application.Services.Responsibles;
 
 namespace Tasks.Api.Application.Services.Tasks
@@ -34,5 +35,7 @@ namespace Tasks.Api.Application.Services.Tasks
         public DateTime? DateEnd { get; set; }
 
         public DateTime? DateCompleted { get; set; }
+
+        public List<TaskProductRespons>? Products { get; set; }
     }
 }
