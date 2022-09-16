@@ -31,18 +31,21 @@ namespace Tasks.Api.Application.Services.DocumentTasks.Commands
         private readonly IRepository<Partner> _partnerRepositpry;
         private readonly IRepository<Importance> _importanceRepositpry;
         private readonly IRepository<TaskType> _taskTypeRepository;
+        private readonly IRepository<Product> _productRepositpry;
 
         public UpdateDocumentTaskCommandHandler(IRepository<DocumentTask> documentTaskRepository,
             IRepository<Responsible> responsibleRepository,
             IRepository<Partner> partnerRepositpry,
             IRepository<Importance> importanceRepositpry,
-            IRepository<TaskType> taskTypeRepository)
+            IRepository<TaskType> taskTypeRepository,
+            IRepository<Product> productRepositpry)
         {
             _documentTaskRepository = documentTaskRepository;
             _responsibleRepository = responsibleRepository;
             _partnerRepositpry = partnerRepositpry;
             _importanceRepositpry = importanceRepositpry;
             _taskTypeRepository = taskTypeRepository;
+            _productRepositpry = productRepositpry;
         }
 
         public async Task<Guid> Handle(UpdateDocumentTaskCommand request, CancellationToken cancellationToken)
@@ -95,6 +98,28 @@ namespace Tasks.Api.Application.Services.DocumentTasks.Commands
             if (author is null)
             {
                 throw new EntityNotFoundException($"{nameof(TaskType)} with id '{request.DocumentTask.ImportanceId}' doesn't exist");
+            }
+
+            documentTask.TaskProducts.Clear();
+
+            foreach (var productRequest in request.DocumentTask.Products)
+            {
+                var product = await _productRepositpry.GetByIdAsync(productRequest.ProductId);
+
+                if (product is null)
+                {
+                    throw new EntityNotFoundException($"{nameof(Product)} with id '{productRequest.ProductId}' doesn't exist");
+                }
+
+                var taskProduct = new TaskProduct
+                {
+                    Product = product,
+                    Discount = productRequest.Discount,
+                    Margin = productRequest.Margin,
+                    Enable = productRequest.Enable
+                };
+
+                documentTask.TaskProducts.Add(taskProduct);
             }
 
             documentTask.Author = author;

@@ -41,5 +41,7 @@ namespace Tasks.Api.Application.Services.DocumentTasks
         public DateTime? DateEnd { get; set; }
 
         public DateTime? DateCompleted { get; set; }
+
+        public List<TaskProductRespons>? Products { get; set; }
     }
 }
