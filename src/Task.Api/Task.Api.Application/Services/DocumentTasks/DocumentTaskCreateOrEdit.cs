@@ -36,6 +36,8 @@ namespace Tasks.Api.Application.Services.Tasks
 
         public DateTime? DateCompleted { get; set; }
 
+        public int OffSet { get; set; }
+
         public List<TaskProductRespons>? Products { get; set; }
     }
 }
