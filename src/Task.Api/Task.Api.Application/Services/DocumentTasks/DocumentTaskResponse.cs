@@ -44,6 +44,6 @@ namespace Tasks.Api.Application.Services.DocumentTasks
 
         public int OffSet { get; set; }
 
-        public List<TaskProductRespons>? Products { get; set; }
+        public List<TaskProductRespons>? TaskProducts { get; set; }
     }
 }
