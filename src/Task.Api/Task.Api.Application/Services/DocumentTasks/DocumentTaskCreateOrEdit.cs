@@ -38,6 +38,6 @@ namespace Tasks.Api.Application.Services.Tasks
 
         public int OffSet { get; set; }
 
-        public List<TaskProductRespons>? Products { get; set; }
+        public List<TaskProductCreateOrEdit>? Products { get; set; }
     }
 }
