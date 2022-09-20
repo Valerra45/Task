@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tasks.Api.Application.Services.Products;
 
 namespace Tasks.Api.Application.Services.DocumentTasks
 {
-    public class TaskProductRespons
+    public class TaskProductResponse
     {
-        public Guid ProductId { get; set; }
+        public ProductResponse? Product { get; set; }
 
         public decimal Discount { get; set; }
 

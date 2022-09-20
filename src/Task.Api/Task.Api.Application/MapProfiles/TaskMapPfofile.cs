@@ -53,8 +53,11 @@ namespace Tasks.Api.Application.MapProfiles
             CreateMap<Product, ProductCreateOrEdit>()
                 .ReverseMap();
 
-            CreateMap<TaskProduct, TaskProductRespons>()
+            CreateMap<TaskProduct, TaskProductCreateOrEdit>()
               .ReverseMap();
+
+            CreateMap<TaskProduct, TaskProductResponse>()
+               .ReverseMap();
         }
     }
 }
